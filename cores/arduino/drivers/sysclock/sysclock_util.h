@@ -195,16 +195,6 @@ void power_mode_update(uint32_t newSystemClock, bool preClockSwitchOver);
  * - PCLK3: 1 (8 MHz)
  * - PCLK4: 1 (8 MHz)
  *
-  * @note
- * found following dividers in original Anycubic Kobra Plus Firmware bsp_init.cpp:
- * - HCLK:  1
- * - EXCLK: 4
- * - PCLK0: 1
- * - PCLK1: 2
- * - PCLK2: 4
- * - PCLK3: 4
- * - PCLK4: 16
- *
  * (refer to HC32F460 user manual, Section 4.11.21, register defaults)
  */
 inline void sysclock_restore_default_clocks()
@@ -221,12 +211,12 @@ inline void sysclock_restore_default_clocks()
     // set clock dividers
     stc_clk_sysclk_cfg_t div = {
         .enHclkDiv = ClkSysclkDiv1,
-        .enExclkDiv = ClkSysclkDiv4,
+        .enExclkDiv = ClkSysclkDiv1,
         .enPclk0Div = ClkSysclkDiv1,
-        .enPclk1Div = ClkSysclkDiv2,
-        .enPclk2Div = ClkSysclkDiv4,
-        .enPclk3Div = ClkSysclkDiv4,
-        .enPclk4Div = ClkSysclkDiv16,
+        .enPclk1Div = ClkSysclkDiv1,
+        .enPclk2Div = ClkSysclkDiv1,
+        .enPclk3Div = ClkSysclkDiv1,
+        .enPclk4Div = ClkSysclkDiv1,
     };
     sysclock_set_clock_dividers(&div);
 
