@@ -19,7 +19,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 
-#error "SPI library is not yet supported on the HC32F460"
+#warning "SPI library is not yet supported on the HC32F460"
 
 #include "Arduino.h"
 
